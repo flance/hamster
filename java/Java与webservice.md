@@ -1,4 +1,4 @@
-### 总结Java中的 `Webservice` 技术
+### 总结Java中的 `Webservice` 技术（我坚持认为它是最脏的一种技术）
 
 - JAX-RPC
 - JAX-WS
