@@ -9,5 +9,9 @@
 	- [junit使用简易总结](java/junit使用简易总结.md)  
 2. git  
 	- [git 分支管理最佳实践](git/git分支管理最佳实践.md)  
+	- [rebase和reset的异同](git/rebase和reset的异同.md)   
 3. markdown  
-	- [markdown 基础语法](markdown/markdown基础语法.md)
+	- [markdown 基础语法](markdown/markdown基础语法.md)  
+4. spring  
+	- [springboot启动完成后立即停止的问题分析](spring/springboot启动完成后立即停止的问题分析.md)  
+	- [spring常用注解](spring/spring常用注解.md)  
