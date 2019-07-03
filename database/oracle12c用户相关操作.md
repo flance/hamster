@@ -35,7 +35,9 @@ to `ipmpdbadmin`;
 	extent management local;
 
 -- 更改用户默认表空间  
-	alter user `ipmpdbadmin` default tablespace `pdbadmin_data` temporary tablespace `pdbadmin_temp`;
+	alter user `ipmpdbadmin` default tablespace `pdbadmin_data` temporary tablespace `pdbadmin_temp`;  
+	//alter user `ipmpdbadmin` quota unlimited on users;--这条语句可能有问题  
+	grant unlimited tablespace to `ipmpdbadmin`;
 
 ----------
 
