@@ -183,3 +183,28 @@
 默认情况下，opensips的所有日志都会输出到 `/var/log/messages`中，只要实时跟踪即可看到错误描述细节:
 
 	tail -f /var/log/messages
+
+### 重定向日志服务
+opensips默认通过 `rsyslog` 服务将日志汇总在 `/var/log/message` 中，根据需要我们可以将其指向独立日志文件 `/var/log/opensips.log` 中：
+
+	vi /etc/rsyslog.conf
+
+在rsyslog.conf文件中追加一行如下配置：
+
+	local0                                              /var/log/opensips.log
+
+> 配置示例如下：
+>
+	# Save boot messages also to boot.log
+	local7.*                                                /var/log/boot.log
+	local0                                                  /var/log/opensips.log	
+	# ### begin forwarding rule ###
+	# The statement between the begin ... end define a SINGLE forwarding
+	# rule. They belong together, do NOT split them. If you create multiple
+	# forwarding rules, duplicate the whole block!
+	# Remote Logging (we use TCP for reliable delivery)
+
+重启rsyslog服务(只有 `opensips.cfg` 中的 `debug_mode=no` 及 `log_stderror=no`，日志才会写入)：
+
+	systemctl restart rsyslog
+
