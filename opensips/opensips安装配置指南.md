@@ -124,11 +124,21 @@
 	mv opensips.cfg opensips.cfg.old
 	mv opensips_residential_2018-5-3_1\:13\:3.cfg opensips.cfg (将自动生成的配置脚本重命名)
 
-编辑opensips.cfg，修改对应的监听地址为机器域名或真实ip：
+编辑opensips.cfg，修改对应的监听地址为机器域名或真实ip，将其中所有以 `CUSTOMIZE ME` 关键字标注释的配置项全部修改一遍(应有5、6处)，使其能正确连接数据库：
 
 	vi opensips.cfg
 
-> listen=udp:127.0.0.1:5060 修改为listen=udp:本机ip:5060
+> 配置示例如下：
+>  
+	listen=udp:opensips-proxy:5060   # CUSTOMIZE ME
+	modparam("usrloc", "db_url",
+		"mysql://root:123456@localhost/opensips") # CUSTOMIZE ME
+	modparam("acc", "db_url",
+		"mysql://root:123456@localhost/opensips") # CUSTOMIZE ME
+	modparam("auth_db|uri", "db_url",
+		"mysql://root:123456@localhost/opensips") # CUSTOMIZE ME
+	modparam("dialog", "db_url",
+		"mysql://root:123456@localhost/opensips") # CUSTOMIZE ME
 
 3、初始化数据基础信息
 
