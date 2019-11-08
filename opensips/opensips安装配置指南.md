@@ -9,6 +9,8 @@
 
 ### 修改主机名为 `opensips-proxy`
 	hostnamectl set-hostname opensips-proxy
+> opensips.cfg若全程绑定的主机名，在特定情况下，服务器重启之后可能会意外绑定到一个错误的映射ip上，导致服务器重启后opensips因ip错误无法启动。
+> 因此，一般情况下建议优先使用固定ip地址来配置、绑定opensips.cfg中的各项参数。
 
 ### 关闭并停用防火墙(有安全隐患，可使用iptables只开放对应端口)
 	systemctl stop firewalld
