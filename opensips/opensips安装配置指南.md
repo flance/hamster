@@ -15,6 +15,7 @@
 ### 关闭并停用防火墙(有安全隐患，可使用iptables只开放对应端口)
 	systemctl stop firewalld
 	systemctl disable firewalld
+	vi /etc/selinux/config ，将其中的 SELINUX=enforcing 改为 SELINUX=disabled
 
 ### 安装mysql数据库服务
 
