@@ -61,8 +61,8 @@
 
 1、安装依赖
 
-	yum install -y mysql mysql-server mysql-libs mysql-devel
-	yum install -y gcc make gcc-c++
+	yum install -y mysql mysql-server mysql-libs mysql-devel libxml2-devel
+	yum install -y gcc make gcc-c++ lynx
 	yum install -y flex bison ncurses libncurses-dev ncurses-devel
 
 2、下载opensips
@@ -107,7 +107,7 @@
 	#数据库管理用户，用于数据库、表创建与数据读写等，默认使用root，如有需要可以自行配置mysql用户权限
 	DBROOTUSER=“root”
 
-2、配置opensips的安全控制
+2、配置opensips的安全控制(适用于不使用opensips的负载均衡服务时)
 
 	/usr/local/sbin/osipsconfig
 
