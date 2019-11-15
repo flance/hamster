@@ -114,12 +114,13 @@
 依次选择–> `Generate OpenSIPS Script` –> `Residential Script`–> `Configure Residential Script`，
 随后选中如下配置（选择键为空格键）:
 
+	[*] ENABLE_TCP 
 	[*] USE_AUTH  
 	[*] USE_DBACC  
 	[*] USE_DBUSERLOC  
 	[*] USE_DIALOG
 
-返回上一级菜单，选择 –> `Generate Residential Script` 回车，生成新的配置文件（在 `/usr/local/etc/opensips/` 目录下）
+返回上一级菜单，选择 –> `Save Residential Script` 保存配置项，然后选择 -> `Generate Residential Script` 回车，生成新的配置文件（在 `/usr/local/etc/opensips/` 目录下）
 
 拷贝和替换原有配置文件：
 

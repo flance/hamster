@@ -13,6 +13,7 @@
 
 	insert into load_balancer (group_id, dst_uri, resources, probe_mode, description) values (1,'sip:192.168.91.138', 'pstn=32', 2,'fs1');
 	insert into load_balancer (group_id, dst_uri, resources, probe_mode, description) values (1,'sip:192.168.91.139', 'pstn=32', 2,'fs2');
+> 一定要注意表 `load_balancer` 的心跳检测参数探测模式`probing_mode`的参数值不能为0(0代表不做心跳检测，意味着fs永远收不到探测包)，可以根据需要设置为1或2。
 
 ### 修改opensips.cfg，配置loadbalancer参数
 	### LOAD_BALANCER module
@@ -20,7 +21,7 @@
 	modparam("load_balancer", "db_url", "mysql://root:123456@localhost/opensips") # CUSTOMIZE ME
 	modparam("load_balancer", "probing_method", "OPTIONS")
 	modparam("load_balancer", "probing_interval", 30) #心跳探测间隔秒数
-> 一定要注意 `opensips.cfg` 文件中 `loadbalancer` 的心跳检测参数探测模式`probing_mode`的参数值不能为0(0代表不做心跳检测，意味着fs永远收不到探测包)，可以根据需要设置为1或2。
+
 
 ### 配置完成后重启opensips生效
 	opensipsctl restart
