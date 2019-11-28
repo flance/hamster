@@ -7,7 +7,7 @@
 ### dispatcher 和 loadbalancer 的区别
 `dispatcher` 与 `loadbalancer` 都可以实现高可用，但是 `dispatcher` 可用作无状态负载平衡器，不能计算每个目的地的负载情况，因此不能保证公平分配，而 `loadbalancer` 可根据负载提供流量路由，会考虑负荷较小的目标。
 
-在本案例中选择 `loadbalancer` 模块作为负载均衡服务，因此 `dispatcher` 要卸载掉。
+在本案例中选择 `loadbalancer` 模块作为负载均衡服务，因此 `dispatcher` 要卸载掉(以免混淆)。
 
 ### 登陆mysql，插入数据增加节点，用于发呼叫消息
 
